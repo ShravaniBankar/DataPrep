@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Preprocessing & Cleaning</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your File for Cleaning</h1>
+        <p>We process and clean your data to ensure accuracy and quality.</p>
+        <img src="C:\Users\PRADNYA SANTOSH GORE\OneDrive\Desktop\data_processing\bacground.png" alt="Data Cleaning" class="illustration">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="fileupload" class="upload-label">Choose a file</label>
+            <input type="file" id="fileupload" name="file" required>
+            <button type="submit" class="upload-btn">Upload & Clean</button>
+        </form>
+        <p class="download-msg">After processing, your cleaned file will be available for download.</p>
+        <button id="download-btn" class="hidden">Download Cleaned File</button>
+    </div>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Processing your file... Please wait.");
+            setTimeout(() => {
+                document.getElementById("download-btn").classList.remove("hidden");
+            }, 3000);
+        });
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #576cc6, #5254c4);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: rgb(0, 0, 0);
+        }
+
+        .illustration {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .upload-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            margin-bottom: 15px;
+        }
+
+        .upload-btn, #download-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #1e3c72;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .upload-btn:hover, #download-btn:hover {
+            background: #2a5298;
+            box-shadow: 0px 4px 10px rgba(42, 82, 152, 0.5);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</body>
+</html>
